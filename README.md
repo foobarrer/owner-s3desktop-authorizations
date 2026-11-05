@@ -47,4 +47,4 @@ Generated heads and objects should not be edited manually. Use the standalone pu
 
 ## Current status
 
-This initial commit establishes the public layout, policy, and validation schemas. It does not contain a real lease. End-to-end publication additionally requires the standalone publisher and the client-side request-export workflow to be completed and tested.
+The public layout, policy, validation schemas, and standalone offline publisher have been tested end to end through GitHub Raw. The repository currently contains one synthetic test lease under the manual-github-e2e instance. It is signed with a non-production test key, is bound to a synthetic client identity, and is not trusted by release clients. Production publication still requires a real client-signed request and an explicit administrator decision.
