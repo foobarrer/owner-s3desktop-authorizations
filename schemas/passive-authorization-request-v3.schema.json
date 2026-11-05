@@ -1,0 +1,306 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/foobarrer/owner-s3desktop-authorizations/blob/main/schemas/passive-authorization-request-v3.schema.json",
+  "title": "S3 Desktop VIN V3 passive authorization request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "request",
+    "signature"
+  ],
+  "properties": {
+    "request": {
+      "$ref": "#/$defs/request"
+    },
+    "signature": {
+      "$ref": "#/$defs/ed25519Signature"
+    }
+  },
+  "$defs": {
+    "base64Url32": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{43}$"
+    },
+    "ed25519Signature": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{86}$"
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "product",
+        "requestId",
+        "installationId",
+        "deviceSigningPublicKey",
+        "leaseEncryptionPublicKey",
+        "channelId",
+        "hardwareBinding",
+        "observedAt",
+        "currentLeaseId",
+        "currentInstanceId",
+        "currentInstanceRevision",
+        "report"
+      ],
+      "properties": {
+        "schema": {
+          "const": 3
+        },
+        "product": {
+          "const": "io.s3desktop.client"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "installationId": {
+          "type": "string",
+          "pattern": "^vin3_[A-Za-z0-9_-]{43}$"
+        },
+        "deviceSigningPublicKey": {
+          "$ref": "#/$defs/base64Url32"
+        },
+        "leaseEncryptionPublicKey": {
+          "$ref": "#/$defs/base64Url32"
+        },
+        "channelId": {
+          "$ref": "#/$defs/base64Url32"
+        },
+        "hardwareBinding": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "currentLeaseId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "currentInstanceId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "currentInstanceRevision": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "report": {
+          "$ref": "#/$defs/deviceReport"
+        }
+      }
+    },
+    "deviceReport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "reportId",
+        "observedAt",
+        "appVersion",
+        "appUptimeSeconds",
+        "computerName",
+        "osUsername",
+        "osName",
+        "osVersion",
+        "osBuild",
+        "architecture",
+        "systemUptimeSeconds",
+        "cpuModel",
+        "physicalCores",
+        "logicalCores",
+        "memoryBytes",
+        "systemManufacturer",
+        "systemModel",
+        "systemSerialNumber",
+        "boardManufacturer",
+        "boardModel",
+        "boardSerialNumber",
+        "storage",
+        "networkInterfaces",
+        "virtualMachine",
+        "collectionErrors"
+      ],
+      "properties": {
+        "schema": {
+          "const": 3
+        },
+        "reportId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "appVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "appUptimeSeconds": {
+          "$ref": "#/$defs/nullableUnsignedInteger"
+        },
+        "computerName": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "osUsername": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "osName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "osVersion": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "osBuild": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "architecture": {
+          "type": "string",
+          "minLength": 1
+        },
+        "systemUptimeSeconds": {
+          "$ref": "#/$defs/nullableUnsignedInteger"
+        },
+        "cpuModel": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "physicalCores": {
+          "$ref": "#/$defs/nullableUnsignedInteger"
+        },
+        "logicalCores": {
+          "$ref": "#/$defs/nullableUnsignedInteger"
+        },
+        "memoryBytes": {
+          "$ref": "#/$defs/nullableUnsignedInteger"
+        },
+        "systemManufacturer": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "systemModel": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "systemSerialNumber": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "boardManufacturer": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "boardModel": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "boardSerialNumber": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "storage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/storageReport"
+          }
+        },
+        "networkInterfaces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/networkInterfaceReport"
+          }
+        },
+        "virtualMachine": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "collectionErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "storageReport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "model",
+        "serialNumber",
+        "filesystem",
+        "totalBytes",
+        "availableBytes"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "model": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "serialNumber": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "filesystem": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "totalBytes": {
+          "$ref": "#/$defs/nullableUnsignedInteger"
+        },
+        "availableBytes": {
+          "$ref": "#/$defs/nullableUnsignedInteger"
+        }
+      }
+    },
+    "networkInterfaceReport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "kind",
+        "macAddress",
+        "physical",
+        "up"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "macAddress": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "physical": {
+          "type": "boolean"
+        },
+        "up": {
+          "type": "boolean"
+        }
+      }
+    },
+    "nullableString": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nullableUnsignedInteger": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    }
+  }
+}

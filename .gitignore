@@ -1,0 +1,11 @@
+.DS_Store
+.env
+.env.*
+private/
+requests/
+staging/
+*.key
+*.pem
+*.p12
+*.pfx
+publisher-state.json

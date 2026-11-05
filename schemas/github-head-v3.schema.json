@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/foobarrer/owner-s3desktop-authorizations/blob/main/schemas/github-head-v3.schema.json",
+  "title": "S3 Desktop VIN V3 signed GitHub channel head",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "payload",
+    "signature"
+  ],
+  "properties": {
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "instanceId",
+        "channelId",
+        "revision",
+        "objectSha256",
+        "objectPath",
+        "objectBytes",
+        "publishedAt",
+        "keyId"
+      ],
+      "properties": {
+        "schema": {
+          "const": 3
+        },
+        "instanceId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9._-]+$"
+        },
+        "channelId": {
+          "$ref": "#/$defs/base64Url32"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "objectSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "objectPath": {
+          "type": "string",
+          "pattern": "^objects/[0-9a-f]{2}/[0-9a-f]{64}\\.lease$"
+        },
+        "objectBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 262144
+        },
+        "publishedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "keyId": {
+          "$ref": "#/$defs/base64Url32"
+        }
+      }
+    },
+    "signature": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{86}$"
+    }
+  },
+  "$defs": {
+    "base64Url32": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{43}$"
+    }
+  }
+}

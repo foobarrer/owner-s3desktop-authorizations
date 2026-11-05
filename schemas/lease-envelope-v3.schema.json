@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/foobarrer/owner-s3desktop-authorizations/blob/main/schemas/lease-envelope-v3.schema.json",
+  "title": "S3 Desktop VIN V3 encrypted lease envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "keyId",
+    "encapsulatedKey",
+    "ciphertext"
+  ],
+  "properties": {
+    "schema": {
+      "const": 3
+    },
+    "keyId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{43}$"
+    },
+    "encapsulatedKey": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{43}$"
+    },
+    "ciphertext": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$"
+    }
+  }
+}

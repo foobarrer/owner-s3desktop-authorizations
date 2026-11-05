@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "product": "io.s3desktop.client",
+  "authorizationProtocol": 3,
+  "rawBaseUrl": "https://raw.githubusercontent.com/foobarrer/owner-s3desktop-authorizations/main/leases/v3/",
+  "headPathTemplate": "{channelPrefix2}/{channelPrefix4}/{channelId}/head.json",
+  "objectPathTemplate": "objects/{sha256Prefix2}/{sha256}.lease",
+  "maxObjectBytes": 262144,
+  "publicationOrder": [
+    "immutableObject",
+    "signedHead"
+  ],
+  "missingHeadMeaning": "notPublished",
+  "revocationMechanism": "higherRevisionSignedTerminalLease",
+  "activeServiceDependency": false,
+  "databaseDependency": false,
+  "clientAuthentication": "anonymousRawRead"
+}
