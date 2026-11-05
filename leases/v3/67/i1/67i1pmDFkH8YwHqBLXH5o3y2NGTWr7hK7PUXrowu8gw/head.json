@@ -1,0 +1,14 @@
+{
+  "payload": {
+    "schema": 3,
+    "instanceId": "manual-github-e2e",
+    "channelId": "67i1pmDFkH8YwHqBLXH5o3y2NGTWr7hK7PUXrowu8gw",
+    "revision": 1,
+    "objectSha256": "b4eb73ff85d6167d3dd04b9bb89b582d013ac51b8bf17e365f326cde789e5af7",
+    "objectPath": "objects/b4/b4eb73ff85d6167d3dd04b9bb89b582d013ac51b8bf17e365f326cde789e5af7.lease",
+    "objectBytes": 1229,
+    "publishedAt": "2026-11-05T03:17:05.873749Z",
+    "keyId": "vPEToCvLfLzOiq8fdT05eVo91Rq9TWuJDrPsxx4ud8Q"
+  },
+  "signature": "fgJYLjX4CuaLDFSJpdaZ6qN4jTQc-j09vhq9PJcRJEnXLMbpFNY0KjwwffKqwynPRxw2IOEU45w9LrTd3G0TAA"
+}
