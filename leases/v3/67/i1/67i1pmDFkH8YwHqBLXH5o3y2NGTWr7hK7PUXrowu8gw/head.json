@@ -1,14 +1,14 @@
 {
   "payload": {
     "schema": 3,
-    "instanceId": "manual-github-e2e",
+    "instanceId": "manual-github-e2e-v2",
     "channelId": "67i1pmDFkH8YwHqBLXH5o3y2NGTWr7hK7PUXrowu8gw",
     "revision": 1,
-    "objectSha256": "b4eb73ff85d6167d3dd04b9bb89b582d013ac51b8bf17e365f326cde789e5af7",
-    "objectPath": "objects/b4/b4eb73ff85d6167d3dd04b9bb89b582d013ac51b8bf17e365f326cde789e5af7.lease",
-    "objectBytes": 1229,
-    "publishedAt": "2026-11-05T03:17:05.873749Z",
-    "keyId": "vPEToCvLfLzOiq8fdT05eVo91Rq9TWuJDrPsxx4ud8Q"
+    "objectSha256": "4e5622f2247fa7f779c299d4f9ba0e77f05f76a11c9d275a270d8000fbc96f4e",
+    "objectPath": "objects/4e/4e5622f2247fa7f779c299d4f9ba0e77f05f76a11c9d275a270d8000fbc96f4e.lease",
+    "objectBytes": 1235,
+    "publishedAt": "2026-11-06T02:15:00.503614Z",
+    "keyId": "O1KGkw4SG-gQrgEhAgtqo8iK_svyYr9rFVQM9vZjW9Y"
   },
-  "signature": "fgJYLjX4CuaLDFSJpdaZ6qN4jTQc-j09vhq9PJcRJEnXLMbpFNY0KjwwffKqwynPRxw2IOEU45w9LrTd3G0TAA"
+  "signature": "xvmqWsbchloBpvZVhrnoFIMUL4HHoMHDPD_lFdbQCzDpZuNR9qjKLC72hykr2nDyQqZqFOUiA4tTuH2HVWMKDQ"
 }
